@@ -1,0 +1,17 @@
+@import './mixins/mixins.scss';
+@import './variables/variables.scss';
+@import './components/header.scss';
+@import './components/aside.scss';
+@import './components/partners.scss';
+@import './components/feedback.scss';
+@import './components/team.scss';
+@import './components/footer.scss';
+
+
+* {
+  font-family: Ubuntu, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}

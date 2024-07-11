@@ -1,0 +1,491 @@
+.team {
+  @include pageGrid;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  position: relative;
+
+  @include onTablet {
+    padding-inline: 50px;
+  }
+
+  &-content {
+    grid-column: 1 / 7;
+
+    @include onTablet {
+      grid-column: 1 / 9;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+    }
+    
+    &__image {
+      position: absolute;
+      top: 50px;
+      right: 30px;
+
+      @include onDesktop {
+        top: 100px;
+        grid-column: 10/11;
+      }
+    }
+
+    &__title {
+      
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 27.58px;
+      text-align: left;
+      padding-block: 50px 30px;
+      color: rgba(16, 16, 32, 1);
+
+      @include onTablet {
+        padding-block: 70px 30px;
+        font-size: 38px;
+      }
+
+      @include onDesktop {
+        padding-block: 100px 30px;
+        font-size: 54px;
+      }
+    }
+
+    &__subtitle {
+      
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 22.98px;
+      text-align: start;
+      color: rgba(16, 16, 32, 1);
+    }
+
+    &__text {
+      padding-block: 15px 40px;
+      
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 23.52px;
+      text-align: left;
+      color: rgba(61, 61, 61, 1);
+      width: 100%;
+    }
+  }
+
+  &-block {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 5px;
+    background: rgba(240, 240, 240, 1);
+    border-radius: 61px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      width: 30%;
+    }
+
+    &__radio {
+      display: flex;
+      gap: 5px;
+      padding: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 20.68px;
+      border-radius: 61px;
+
+      &--active {
+        background-color: red;
+      }
+    }
+  }
+
+  &-slider {
+    display: none;
+    width: 90%;
+    margin: 0 auto;
+
+    &__slide {
+      background-image: url('/public/image/user-1.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      position: relative;
+
+      @include onDesktop {
+        background-size: cover;
+      }
+
+      &-second {
+        background-image: url('/public/image/user-2.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+
+        @include onDesktop {
+          background-size: cover;
+        }
+      }
+
+      &-title {  
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 27.58px;
+        text-align: center;
+      }
+
+      &-subtitle {        
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 22.98px;
+        text-align: center;
+      }
+
+      &-button {
+        margin-block-start: 20px;
+        border-radius: 49px;
+        background: rgba(255, 11, 83, 1);
+        color: #fff;
+        
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 22.98px;
+        padding: 16px 35px;
+        width: 100%;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+
+  }
+
+  &-btn {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+}
+
+//Slick
+
+.slide-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.team-slider__slide:hover .slide-background {
+  opacity: 1;
+}
+
+
+.slide-hover-content {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+.team-block__radio-button.checked {
+  background-color: #ccc;
+  border-color: #666;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.slick {
+  &-slide {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    height: 200px;
+    margin: 0 10px;
+    cursor: pointer;
+
+    @include onTablet {
+      height: 250px;
+    }
+  }
+
+  &-dots {
+    justify-content: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+
+    @include onDesktop {
+      // justify-content: start;
+      // width: fit-content;
+    }
+
+    & li.slick-active {
+      background: rgba(23, 25, 29, 1);
+      height: 7px;
+      border-radius: 1px;
+    }
+
+    & li {
+      cursor: pointer;
+      width: 60px;
+      height: 1px;
+      background-color: rgba(103, 103, 103, 1);
+      margin: 0;
+      transition: background-color 0.3s ease;
+
+      @include onDesktop {
+        width: 150px;
+      }
+    }
+
+    & li button {
+      background: none;
+      border: none;
+      outline: none;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    & li button {
+      display: none;
+    }
+  }
+
+  &-slide:hover .slide-hover-content {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.active-slider {
+  display: block !important;
+}
+
+
+//Control buttons
+.next-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+ 
+
+  &__arrow {
+    padding: 5px;
+  }
+}
+
+.prev-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  &__arrow {
+    padding: 5px;
+    transform: rotate(180deg);
+  }
+}
+
+.slide-nav {
+  justify-content: center;
+  padding-block: 20px;
+  gap: 30px;
+  display: none;
+
+  @include onDesktop {
+    display: flex;
+  }
+}
+
+//Modal
+.modal {
+  display: none;
+  padding-inline: 20px;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+
+  @include onTablet {
+    width: 50%;
+    transform: translate(50%, -50%);
+
+  }
+
+  &-content {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__block {
+      @include onDesktop {
+        display: flex;
+        gap: 20px;
+      }
+    }
+
+    &__top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+
+      &-avatar {
+        @include onTablet {
+          width: 180px;
+        }
+
+        @include onDesktop {
+          width: 240px;
+        }
+      }
+
+      &-button {
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include onDesktop {
+          position: absolute;
+          right: 0;
+          top: -15px;
+        }
+      }
+
+      &-icon {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &__middle {
+      padding-block: 20px;
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      gap: 15px;
+
+      &-info {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+
+        @include onDesktop {
+          gap: 30px;
+        }
+      }
+
+      &-name {
+        
+        width: fit-content;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18.38px;
+        text-align: start;
+        color: rgba(88, 88, 88, 1);
+      }
+
+      &-value {
+        
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 18.38px;
+        text-align: start;
+        color: rgba(44, 44, 44, 1);
+      }
+
+      &-link {
+        text-decoration: none;
+        
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 18.38px;
+        text-align: start;
+        color: rgba(44, 44, 44, 1);
+      }
+    }
+
+    &__social {
+      &-list {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+        width: fit-content;
+      }
+    }
+
+    &__bottom {
+      @include onDesktop {
+        padding-block-start: 20px;
+      }
+
+      &-text {
+        
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 23.52px;
+        text-align: left;
+        color: rgba(61, 61, 61, 1);
+      }
+    }
+  }
+}
+
+//Overlay
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 1);
+  z-index: 9998;
+}
+
+//change input radio
+input[type='radio'] {
+  accent-color: #fff;
+}
