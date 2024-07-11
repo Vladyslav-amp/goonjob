@@ -1,0 +1,110 @@
+.menu {
+  display: none;
+  background: rgba(23, 25, 29, .5);
+  backdrop-filter: blur(25px);
+  z-index: 10;
+}
+
+.menu--open {
+  display: block;
+}
+
+.open-icon,
+.close-icon {
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+
+  @include onTablet {
+    height: 30px;
+    width: 30px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+}
+
+.page__menu {
+  height: 89%;
+  position: absolute;
+  width: 100%;
+}
+
+.nav {
+  position: relative;
+
+  &-menu {
+    &__bottom {
+      padding-block-start: 25px;
+
+      &-block {
+        position: fixed;
+        bottom: 25px;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &__social {
+      &-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      &-item {
+        list-style: none;
+      }
+
+      &-image {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    &__policy {
+      text-align: center;
+      padding-block-start: 30px;
+
+      &-rules {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 18.38px;
+        text-align: left;
+        text-decoration: none;
+        color: rgba(177, 177, 177, 1);
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline-start: 20px;
+
+    @include onTablet {
+      padding-inline-start: 50px;
+    }
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 27.58px;
+    text-align: left;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
